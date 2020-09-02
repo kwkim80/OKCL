@@ -22,18 +22,16 @@
 }
 
 
-
-/* #cover{
-    background: #ddd url("{% static 'images/book_bg4.jpg' %}") center top no-repeat;
+#cover{
+    background: url("http://drive.google.com/uc?export=view&id=1qpoahn5Ee5r9M8gYp4ZKtHxG7-Tj54ba") center top no-repeat;
     background-size:cover;
     color: whitesmoke;
-    height: 100%;
+    height:70vh;
     text-align: center;
     display: flex;
     align-items: center;
-  
- 
-} */
+}
+
 #cover-caption{
     width:100%;
     height: 100%;
