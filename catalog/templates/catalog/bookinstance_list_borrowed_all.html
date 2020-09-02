@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Borrowed books</h1>
+    
+    <ul class="object-list mt-4 " style="list-style: none;">
+      <li>
+        <div class="row list-header py-2 font-size-smallest">
+          <div class="col-3">Title</div>
+          <div class="col-1">Status</div>
+          <div class="col-2">Borrower</div>
+          <div class="col-2">Due_back</div>
+          <div class="col-2">ID</div>
+          <div class="col-1">Overdue</div>
+          <div class="col-1">Extend</div>
+        </div>
+    </li>
+    {% if bookinstance_list %}
+    {% for bookinst in bookinstance_list %} 
+    <li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
+        <div class="row py-2 border-top font-size-smallest">
+            <div class="col-3 font-size-smallest"><a href="{% url 'book-detail' bookinst.book.pk %}">{{bookinst.book.title}}</a></div>
+            <div class="col-1 ">  {{ bookinst.status }} </div>
+            <div class="col-2">  {{ bookinst.borrower }} </div>
+            <div class="col-2">  {{ bookinst.due_back }} </div>
+            <div class="col-2" style="font-size: xx-small;"> {{bookinst.id}}</div>
+            <div class="col-1"> {{bookinst.is_overdue}}</div>
+            <div class="col-1">{% if perms.catalog.can_mark_returned %} <a href="{% url 'renew-book-librarian' bookinst.id %}">Renew</a>  {% endif %}</div>
+          </div>
+    </li>
+       {% endfor %}
+    {% else %}
+    <li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
+        <div class="row py-2 border-top">
+            <div >There are no books borrowed.</div>  
+    </li>
+    {% endif %} 
+</ul>
+{% endblock %}

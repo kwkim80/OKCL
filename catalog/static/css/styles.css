@@ -1,0 +1,44 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+  
+}
+
+.object-list {
+    padding: 0;
+    list-style: none;
+}
+
+.list-header{
+    background-color: #d4f5d8;
+}
+
+.font-size-smaller{
+    font-size:smaller;
+}
+.font-size-smallest{
+    font-size:xx-small;
+}
+
+
+
+/* #cover{
+    background: #ddd url("{% static 'images/book_bg4.jpg' %}") center top no-repeat;
+    background-size:cover;
+    color: whitesmoke;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  
+ 
+} */
+#cover-caption{
+    width:100%;
+    height: 100%;
+}
+
+#maintitleBox{
+    background: rgba(0, 0, 0, 0.3);
+}

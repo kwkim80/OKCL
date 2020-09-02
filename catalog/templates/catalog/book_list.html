@@ -1,0 +1,43 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="px-4 pt-4">
+
+
+  <h1>Book List</h1>
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'book_create' %}">Add Book</a>
+  </div>
+
+  {% if book_list %}
+  
+  <ul class="object-list mt-4 " style="list-style: none;">
+    <li>
+      <div class="row list-header py-2">
+        <div class="col-4">Title</div>
+        <div class="col-2">Author</div>
+        <div class="col-2">ISBN</div>
+        <div class="col-2"> Genre</div>
+        <div class="col-2"> Language</div>
+      </div>
+  </li>
+    {% for book in book_list %}
+      <li>
+       
+          <div class="row py-2 border-top">
+            <div class="col-4"><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></div>
+            <div class="col-2"> {{book.author}}</div>
+            <div class="col-2"> {{book.isbn}}</div>
+            <div class="col-2"> {{book.genre}}</div>
+            <div class="col-2"> {{book.language}}</div>
+          </div>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %} 
+
+  
+</div>     
+{% endblock %}
